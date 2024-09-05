@@ -11,6 +11,12 @@ Install gems:
 bundle install
 ```
 
+Create `.env` file at the main directory and copy and paste your API key there:
+
+```
+SERPAPI_API_KEY=your_secret_api_key
+```
+
 Run the `main.rb` script to make the script run:
 ```
 ruby main.rb
