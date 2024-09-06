@@ -5,8 +5,12 @@ module Engine
     class Company < Scrapper
       class << self
         def subsidiaries(company)
-          response = get_page_result_for("#{company} subsidiaries")
-          response[:knowledge_graph][:subsidiaries].map {|subsidiary| subsidiary[:name] }
+          response = get_page_result_for(
+            "#{company} subsidiaries",
+            search_hash: :knowledge_graph
+          )
+
+          response[:subsidiaries].map {|subsidiary| subsidiary[:name] }
         end
       end
     end
