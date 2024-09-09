@@ -1,8 +1,8 @@
-require_relative '../scrapper'
+require_relative './scrapper'
 
 module Engine
   module Google
-    class Company < Scrapper
+    class Company < Engine::Google::Scrapper
       class << self
         def subsidiaries(company)
           response = get_page_result_for(

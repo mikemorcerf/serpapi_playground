@@ -1,8 +1,8 @@
-require_relative '../scrapper'
+require_relative './scrapper'
 
 module Engine
   module Google
-    class BusinessInfo < Scrapper
+    class BusinessInfo < Engine::Google::Scrapper
       @week_order = [:monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday]
 
       class << self

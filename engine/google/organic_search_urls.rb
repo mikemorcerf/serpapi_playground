@@ -1,22 +1,22 @@
-require_relative '../scrapper'
+require_relative './scrapper'
 
 module Engine
   module Google
-    class OrganicSearchUrls < Scrapper
+    class OrganicSearchUrls < Engine::Google::Scrapper
       class << self
-        def get_locations_for(
+        def get_urls_for(
           search_param,
-          num_loc: 10
+          num_results: 10
         )
 
-          generate_response(search_param, num_loc)
+          generate_response(search_param, num_results)
         end
 
-        def generate_response(search_param, num_loc)
+        def generate_response(search_param, num_results)
           response = []
           current_start = 0
 
-          while response.length < num_loc
+          while response.length < num_results
             current_response = get_page_result_for(
               search_param,
               location: 'Austin,Texas,United States',
@@ -24,7 +24,7 @@ module Engine
             )
 
             current_response[:organic_results].each do |result|
-              break if response.length >= num_loc
+              break if response.length >= num_results
               response << {
                 name: result[:title],
                 url: result[:link]

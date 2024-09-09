@@ -1,8 +1,8 @@
-require_relative '../scrapper'
+require_relative './scrapper'
 
 module Engine
   module Google
-    class Famous < Scrapper
+    class Famous < Engine::Google::Scrapper
       class << self
         def birth_date(famous_person)
           response = get_page_result_for(
